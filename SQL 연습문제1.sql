@@ -82,10 +82,8 @@ from `product`;
 
 #실습 1-8
 select
-	`company`
-from `product`
-group by `company`;
-
+	distinct `company`
+from `product`;
 #실습 1-9
 select 
     `prodName`,
@@ -214,3 +212,4 @@ from `Order` as a
 join `Customer` as b on a.orderId = b.custId
 join `product` as c on a.orderProduct = c.prodNo
 where `orderDate` like '2022-07-03 %';
+#substr(`orderdate1`, 1, 10) = '2022-07-03'
