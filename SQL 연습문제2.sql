@@ -235,3 +235,17 @@ where `t_dist` = 1
 order by `t_amount` desc;
 
 #실습2-30
+select 
+	`t_no`,
+    `a_no`,
+    `c_no`,
+    `t_dist`,
+    `a_item_name`,
+    `c_name`,
+    count(`t_no`) as `거래건수`
+from `bank_transaction` as a
+join `bank_account` as b on a.`t_a_no` = b.`a_no`
+join `bank_customer` as c on b.`a_c_no` = c.`c_no`
+where `t_dist` in(1, 2) and `c_dist` = 1
+group by `c_name`
+order by `t_dist`, `거래건수` desc;
