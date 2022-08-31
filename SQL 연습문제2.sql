@@ -137,6 +137,7 @@ limit 1;
 
 #실습2-19
 select * from `bank_transaction`
+where `t_dist` <> 3
 order by `t_dist`, `t_amount` desc;
 
 #실습2-20
@@ -188,7 +189,7 @@ order by `합계` desc;
 #실습2-25
 select * 
 from `bank_account` as a
-join `bank_customer` as b;
+join `bank_customer` as b on a.`a_c_no` = b.`c_no`;
 
 #실습2-26
 select 
@@ -247,5 +248,5 @@ from `bank_transaction` as a
 join `bank_account` as b on a.`t_a_no` = b.`a_no`
 join `bank_customer` as c on b.`a_c_no` = c.`c_no`
 where `t_dist` in(1, 2) and `c_dist` = 1
-group by `c_name`
+group by `c_no`
 order by `t_dist`, `거래건수` desc;
